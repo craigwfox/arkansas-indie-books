@@ -1,7 +1,7 @@
 ---
 name: "Snooper's Barn Used Book Store"
 description: ""
-address: "208 Towson Ave, Fort Smith, AR 72901"
+address: "208 Towson Ave"
 city: "Fort Smith"
 website: ""
 newBooks: false

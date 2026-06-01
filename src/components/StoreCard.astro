@@ -1,0 +1,76 @@
+---
+import { Buffer } from "node:buffer"
+import type { InferEntrySchema, RenderedContent } from "astro:content"
+
+interface Props {
+	store: {
+		id: string
+		body?: string
+		collection: "stores"
+		data: InferEntrySchema<"stores">
+		rendered?: RenderedContent
+		filePath?: string
+	}
+}
+
+const { store } = Astro.props
+const storeData = store.data
+const storeIdClear = storeData.name.toLowerCase().replaceAll(" ", "-")
+const storeId = Buffer.from(storeIdClear, "utf-8").toString("base64")
+const storeAria = Buffer.from(`title-${storeIdClear}`, "utf-8").toString(
+	"base64",
+)
+---
+
+<article id={storeId} aria-labelledby={storeAria}>
+	<div>
+		<span>{storeData.city}</span>
+	</div>
+	<div>
+		<h2 id={storeAria}>{storeData.name}</h2>
+		<h3>Address</h3>
+		<p>{storeData.address}<br />{storeData.city}, AR</p>
+		<table>
+			<tbody>
+				<tr>
+					<th scope="row">New</th>
+					<td
+						>{
+							storeData.newBooks ? (
+								<img src="/images/icon-checkbox-yes.svg" alt="has new books" />
+							) : (
+								<img
+									src="/images/icon-checkbox-no.svg"
+									alt="does not have new books"
+								/>
+							)
+						}</td
+					>
+				</tr>
+				<tr>
+					<th scope="row">Used</th>
+					<td
+						>{
+							storeData.newBooks ? (
+								<img src="/images/icon-checkbox-yes.svg" alt="has used books" />
+							) : (
+								<img
+									src="/images/icon-checkbox-no.svg"
+									alt="does not have used books"
+								/>
+							)
+						}</td
+					>
+				</tr>
+			</tbody>
+		</table>
+		{storeData.image && <img src={`/store-images/${storeData.image}`} />}
+	</div>
+	{
+		store.rendered?.html && (
+			<div>
+				<Fragment set:html={store.rendered.html} />
+			</div>
+		)
+	}
+</article>

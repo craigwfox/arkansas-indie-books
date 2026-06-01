@@ -1,12 +1,15 @@
 ---
-const { name, description } = Astro.props;
+import SiteHeader from "../components/SiteHeader.astro"
+import SiteFooter from "../components/SiteFooter.astro"
 
-let pageTitle: string = `Arkansas Indie Books`;
-let pageDescription: string = "A list of indie books stores in Arkansas";
+const { name, description } = Astro.props
 
-if (description) pageDescription = description;
+let pageTitle: string = `Arkansas Indie Books`
+let pageDescription: string = "A list of indie books stores in Arkansas"
 
-if (name) pageTitle = `${pageTitle} | ${name}`;
+if (description) pageDescription = description
+
+if (name) pageTitle = `${pageTitle} | ${name}`
 ---
 
 <!doctype html>
@@ -21,6 +24,10 @@ if (name) pageTitle = `${pageTitle} | ${name}`;
 		<meta name="description" content={pageDescription} />
 	</head>
 	<body>
-		<slot />
+		<SiteHeader />
+		<main id="main-content">
+			<slot />
+		</main>
+		<SiteFooter />
 	</body>
 </html>

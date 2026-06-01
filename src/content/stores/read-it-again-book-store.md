@@ -1,7 +1,7 @@
 ---
 name: "Read it Again Book Store"
 description: ""
-address: "405 S Main St., Bentonville, AR"
+address: "405 S Main St."
 city: "Bentonville"
 website: "https://bentonvillelibraryfriends.org/read-it-again-bookstore/"
 newBooks: false

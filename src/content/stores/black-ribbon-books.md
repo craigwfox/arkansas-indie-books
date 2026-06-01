@@ -1,7 +1,7 @@
 ---
 name: "Black Ribbon Books"
 description: ""
-address: "239 Central Ave, Hot Springs, AR 71901"
+address: "239 Central Ave"
 city: "Hot Springs"
 website: "https://www.facebook.com/profile.php?id=100093909771807"
 newBooks: false

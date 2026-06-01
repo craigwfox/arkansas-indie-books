@@ -1,7 +1,7 @@
 ---
 name: "The Book Worm"
 description: ""
-address: "1500 AR-5, Benton, AR 72019"
+address: "1500 AR-5, Benton"
 city: "Benton"
 website: "https://www.facebook.com/BookWormBenton"
 newBooks: false

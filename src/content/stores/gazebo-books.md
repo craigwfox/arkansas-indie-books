@@ -1,7 +1,7 @@
 ---
 name: "Gazebo Books"
 description: ""
-address: "86 Spring St, Eureka Springs, AR 72632"
+address: "86 Spring St"
 city: "Eureka Springs"
 website: ""
 newBooks: true

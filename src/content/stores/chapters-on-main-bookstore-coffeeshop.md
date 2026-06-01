@@ -1,11 +1,11 @@
 ---
 name: "Chapters on Main Bookstore & Coffeeshop"
 description: ""
-address: "816 Main St, Van Buren, AR 72956"
+address: "816 Main St"
 city: "Van Buren"
 website: "https://www.chaptersonmain.com/"
 newBooks: false
 usedBooks: false
-image: null
+image: "van-buren-chapters-on-main-bookstore-coffeeshop.webp"
 categories: []
 ---

@@ -1,5 +1,15 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../layouts/Layout.astro"
+import { getCollection } from "astro:content"
+import StoreCard from "../components/StoreCard.astro"
+
+const storeCollection = await getCollection("stores")
+const stores = [...storeCollection].sort((a, b) =>
+	a.data.city.localeCompare(b.data.city),
+)
 ---
 
-<Layout />
+<Layout>
+	<h1>Pizza</h1>
+	{stores.map((store) => <StoreCard store={store} />)}
+</Layout>
