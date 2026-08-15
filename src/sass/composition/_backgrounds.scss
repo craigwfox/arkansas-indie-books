@@ -1,0 +1,30 @@
+// ---------------------------------------------
+// ======---------------------------------======
+//  Backgrounds
+// ======---------------------------------======
+// ---------------------------------------------
+@use "../abstracts/functions" as *;
+
+.background-diamond {
+  position: relative;
+
+  background: var(--ds-core-dim-scarlet-100);
+
+  > * {
+    position: relative;
+    z-index: var(--z-floor-1);
+  }
+
+  &::before {
+    content: "";
+
+    display: block;
+    position: absolute;
+    inset: 0;
+    z-index: var(--z-basement);
+    pointer-events: none;
+
+    background: url("/images/background-diamond.svg") repeat;
+    opacity: 0.1;
+  }
+}

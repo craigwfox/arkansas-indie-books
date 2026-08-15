@@ -1,0 +1,196 @@
+// ---------------------------------------------
+// ======---------------------------------======
+//  Root Variables
+// ======---------------------------------======
+// ---------------------------------------------
+@use "../abstracts/functions" as *;
+
+:root {
+  // ====---------------====
+  // Core
+  // ====---------------====
+
+  /* Core - Chalky Gold Gray */
+  --ds-core-chalky-gold-gray-0: #fffef6;
+  --ds-core-chalky-gold-gray-50: #fdfbe7;
+  --ds-core-chalky-gold-gray-100: #f7f5e2;
+  --ds-core-chalky-gold-gray-200: #e9e7d2;
+  --ds-core-chalky-gold-gray-300: #d2d0be;
+  --ds-core-chalky-gold-gray-400: #aaa99b;
+  --ds-core-chalky-gold-gray-500: #84837a;
+  --ds-core-chalky-gold-gray-600: #66655e;
+  --ds-core-chalky-gold-gray-700: #4d4d47;
+  --ds-core-chalky-gold-gray-800: #363630;
+  --ds-core-chalky-gold-gray-900: #1a1914;
+
+  /* Core - Dim Scarlet */
+  --ds-core-dim-scarlet-50: #fff8f6;
+  --ds-core-dim-scarlet-100: #fcf1ef;
+  --ds-core-dim-scarlet-200: #ebe0de;
+  --ds-core-dim-scarlet-300: #d4c9c7;
+  --ds-core-dim-scarlet-400: #ada3a1;
+  --ds-core-dim-scarlet-500: #897e7c;
+  --ds-core-dim-scarlet-600: #6e5f5c;
+  --ds-core-dim-scarlet-700: #574643;
+  --ds-core-dim-scarlet-800: #422f2c;
+  --ds-core-dim-scarlet-900: #26120d;
+  --ds-core-dim-scarlet-950: #110302;
+
+  /* Core - Pink */
+  --ds-core-pink-100: #ffe7f4;
+  --ds-core-pink-200: #ffcee1;
+  --ds-core-pink-300: #ffaaca;
+  --ds-core-pink-400: #fb6ea1;
+  --ds-core-pink-500: #df227a;
+  --ds-core-pink-600: #b1115e;
+  --ds-core-pink-700: #8b0348;
+  --ds-core-pink-800: #680033;
+  --ds-core-pink-900: #3c0019;
+
+  /* Core - Neutral */
+  --ds-core-neutral-50: #ffffff;
+  --ds-core-neutral-100: #e5e5e5;
+  --ds-core-neutral-200: #cccccc;
+  --ds-core-neutral-300: #b2b2b2;
+  --ds-core-neutral-400: #999999;
+  --ds-core-neutral-500: #808080;
+  --ds-core-neutral-600: #595959;
+  --ds-core-neutral-700: #333333;
+  --ds-core-neutral-800: #262626;
+  --ds-core-neutral-900: #161616;
+
+  /* Core - Green */
+  --ds-core-green-100: #d2ffac;
+  --ds-core-green-200: #b8ee8d;
+  --ds-core-green-300: #95d564;
+  --ds-core-green-400: #52ab0a;
+  --ds-core-green-500: #3f8607;
+  --ds-core-green-600: #306805;
+  --ds-core-green-700: #234f03;
+  --ds-core-green-800: #183800;
+  --ds-core-green-900: #091e00;
+
+  /* Core - Background */
+  --ds-core-background-default: var(--ds-core-neutral-50);
+  --ds-core-background-alternate: #fffef6;
+
+  /* Core - Borders */
+  --ds-core-borders-default: var(--ds-core-chalky-gold-gray-200);
+
+  /* Core - Content */
+  --ds-core-content-default: var(--ds-core-dim-scarlet-900);
+  --ds-core-content-alternate: var(--ds-core-dim-scarlet-700);
+  --ds-core-content-reverse: var(--ds-core-dim-scarlet-200);
+
+  /* Type - Default */
+  --ds-type-default-font-family: Merriweather;
+
+  /* Type - Secondary */
+  --ds-type-secondary-font-family: Lilita One;
+
+  /* Type - Colors */
+  --ds-type-color-primary: var(--ds-core-neutral-900);
+  --ds-type-color-secondary: var(--ds-core-pink-500);
+  --ds-type-color-tertiary: var(--ds-core-content-alternate);
+
+  /* Shadows */
+  --ds-book-card-shadow: 2px 4px 8px 0px rgba(0, 0, 0, 0.149);
+
+  // ====---------------====
+  // Book cards
+  // ====---------------====
+
+  /* Book Card - Binding */
+  --ds-book-card-binding-band: #e0c985;
+  --ds-book-card-binding-band-shadow: #8c805f;
+  --ds-book-card-binding-color: #eaebc4;
+  --ds-book-card-binding-background: #54281c;
+  --ds-book-card-binding-type-heading-font-family: var(
+    --ds-type-secondary-font-family
+  );
+  --ds-book-card-binding-type-heading-font-size: #{rem(20)};
+  --ds-book-card-binding-type-heading-line-height: #{rem(20)};
+  --ds-book-card-binding-type-heading-letter-spacing: #{rem(0)};
+  --ds-book-card-binding-type-heading-font-weight: 700;
+
+  /* Book Card - Binding Alt One */
+  --ds-book-card-binding-alt-one-band: #d7b170;
+  --ds-book-card-binding-alt-one-band-shadow: #876326;
+  --ds-book-card-binding-alt-one-color: #eddcbf;
+  --ds-book-card-binding-alt-one-background: #852a1d;
+
+  /* Book Card - Binding Alt Two */
+  --ds-book-card-binding-alt-two-band: #f3e1b4;
+  --ds-book-card-binding-alt-two-band-shadow: #af9a64;
+  --ds-book-card-binding-alt-two-color: #f3e1b4;
+  --ds-book-card-binding-alt-two-background: #a45414;
+
+  /* Book Card - Binding Alt Three */
+  --ds-book-card-binding-alt-three-band: #dfd59f;
+  --ds-book-card-binding-alt-three-band-shadow: #afa46a;
+  --ds-book-card-binding-alt-three-color: #dfd59f;
+  --ds-book-card-binding-alt-three-background: #394d34;
+
+  /* Book Card - Title */
+  --ds-book-card-title-color: var(--ds-core-pink-500);
+  --ds-book-card-title-type-font-family: var(--ds-type-default-font-family);
+  --ds-book-card-title-type-font-size: #{rem(24)};
+  --ds-book-card-title-type-line-height: #{rem(36)};
+  --ds-book-card-title-type-letter-spacing: #{rem(0)};
+  --ds-book-card-title-type-font-weight: 400;
+
+  /* Book Card - Subtitle */
+  --ds-book-card-subtitle-color: var(--ds-core-content-alternate);
+  --ds-book-card-subtitle-type-font-family: var(--ds-type-default-font-family);
+  --ds-book-card-subtitle-type-font-size: #{rem(16)};
+  --ds-book-card-subtitle-type-line-height: #{rem(24)};
+  --ds-book-card-subtitle-type-letter-spacing: #{rem(0)};
+  --ds-book-card-subtitle-type-font-weight: 400;
+
+  /* Book Card - Content */
+  --ds-book-card-content-color: var(--ds-core-content-default);
+  --ds-book-card-content-type-font-family: var(--ds-type-secondary-font-family);
+  --ds-book-card-content-type-font-size: #{rem(16)};
+  --ds-book-card-content-type-line-height: #{rem(24)};
+  --ds-book-card-content-type-letter-spacing: #{rem(0)};
+  --ds-book-card-content-type-font-weight: 400;
+
+  /* Book Card - Icon Colors */
+  --ds-book-card-book-card-icon-color-yes: var(--ds-core-green-400);
+  --ds-book-card-book-card-icon-color-no: var(--ds-core-pink-500);
+
+  // ====---------------====
+  // Logo
+  // ====---------------====
+
+  /* Header - Logo */
+  --ds-header-logo-color: var(--ds-core-pink-200);
+  --ds-header-logo-font-size: #{rem(38)};
+  --ds-header-logo-font-family: var(--ds-type-default-font-family);
+  --ds-header-logo-font-family-2: Madimi One;
+
+  // ====---------------====
+  // Z-index
+  // ====---------------====
+  --z-basement: 1;
+  --z-floor-1: 100;
+  --z-floor-2: 200;
+  --z-floor-3: 300;
+  --z-floor-4: 400;
+  --z-floor-5: 500;
+  --z-floor-6: 600;
+  --z-floor-7: 700;
+  --z-floor-8: 800;
+  --z-floor-9: 900;
+  --z-ceiling: 9999;
+
+  // ====---------------====
+  // Sizing
+  // ====---------------====
+  --wrapper: #{$breakpoint-xl};
+  --wrapper-padding: #{size(4)};
+  --wrapper-inline: max(
+    #{size(4)},
+    calc((100% - calc(var(--wrapper) - var(--wrapper-padding) * 2)) / 2)
+  );
+}

@@ -6,6 +6,6 @@ city: "Russellville"
 website: "https://www.ilovedogear.com/"
 newBooks: true
 usedBooks: true
-image: null
+image: "russellville-dog-ear-books.webp"
 categories: []
 ---

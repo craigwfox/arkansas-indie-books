@@ -1,6 +1,7 @@
 ---
 import SiteHeader from "../components/SiteHeader.astro"
 import SiteFooter from "../components/SiteFooter.astro"
+import "../sass/styles.scss"
 
 const { name, description } = Astro.props
 
@@ -17,11 +18,16 @@ if (name) pageTitle = `${pageTitle} | ${name}`
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" href="/images/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pageTitle}</title>
 		<meta name="description" content={pageDescription} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
 		<SiteHeader />

@@ -1,0 +1,83 @@
+// ---------------------------------------------
+// ======---------------------------------======
+// Basic Type
+// ======---------------------------------======
+// -------------------------
+@use "../abstracts/functions" as *;
+
+// ====---------------====
+// Skip links
+// ====---------------====
+.skip-link {
+  position: absolute;
+  left: -10000px;
+  top: auto;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+
+  &:focus {
+    width: auto;
+    height: auto;
+
+    padding: var(--space-xs) var(--space-m);
+
+    left: 0;
+
+    background-color: var(--c-grey-xd);
+
+    color: var(--c-blue);
+  }
+}
+
+h1,
+h2 {
+  color: var(--ds-type-color-secondary);
+}
+
+h3,
+h4 {
+  color: var(--ds-type-color-tertiary);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--ds-type-secondary-font-family);
+}
+
+a {
+  color: var(--ds-type-color-secondary);
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    color: var(--ds-type-color-tertiary);
+  }
+}
+
+// ====---------------====
+// Content flow
+// ====---------------====
+@mixin flow($size) {
+  > * + * {
+    padding-block-start: #{size($size)};
+  }
+}
+
+.flow {
+  @include flow(2);
+}
+
+.flow-sm {
+  @include flow(1);
+}
+
+.flow-lg {
+  @include flow(3);
+}
+
+.flow-xl {
+  @include flow(4);
+}

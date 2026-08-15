@@ -1,0 +1,44 @@
+// ---------------------------------------------
+// ======---------------------------------======
+//  Indie Books Styles
+// ======---------------------------------======
+// ---------------------------------------------
+@use "sass:meta";
+
+@layer global, composition, blocks, exceptions, utilities;
+
+//===-----------------===
+// Global
+//===-----------------===
+@layer global {
+  @include meta.load-css("./globals/variables");
+  @include meta.load-css("./globals/reset");
+}
+
+//===-----------------===
+// Composition
+//===-----------------===
+@layer composition {
+  @include meta.load-css("./composition/type");
+  @include meta.load-css("./composition/backgrounds");
+}
+
+//===-----------------===
+// Block
+//===-----------------===
+@layer block {
+  @include meta.load-css("./block/header");
+  @include meta.load-css("./block/store-cards");
+  @include meta.load-css("./block/footer");
+}
+
+//===-----------------===
+// Exception
+//===-----------------===
+
+//===-----------------===
+// Utility
+//===-----------------===
+@layer utility {
+  @include meta.load-css("./utility/visibility");
+}

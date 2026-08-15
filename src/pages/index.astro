@@ -10,6 +10,19 @@ const stores = [...storeCollection].sort((a, b) =>
 ---
 
 <Layout>
-	<h1>Pizza</h1>
-	{stores.map((store) => <StoreCard store={store} />)}
+	<div class="store-grid background-diamond">
+		<div class="flow-sm">
+			<h1>Indie Bookstores of Arkansas</h1>
+			<p>A list of most of the great independent bookstores across Arkansas.</p>
+			<p>
+				If you would like to be added fill out the <a
+					href="https://docs.google.com/forms/d/e/1FAIpQLSeW4XyDDWN-1eu08xPtL0UofL_epbExKOF88lpSaHY7wfXfDA/viewform?usp=header"
+					target="_blank">request form</a
+				>.
+			</p>
+		</div>
+		<div class="store-cards">
+			{stores.map((store, index) => <StoreCard store={store} index={index} />)}
+		</div>
+	</div>
 </Layout>

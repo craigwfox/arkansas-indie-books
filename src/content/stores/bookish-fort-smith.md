@@ -6,6 +6,6 @@ city: "Fort Smith"
 website: "https://www.facebook.com/BookishShopFS/"
 newBooks: true
 usedBooks: false
-image: null
+image: "fort-smith-bookish.webp"
 categories: []
 ---

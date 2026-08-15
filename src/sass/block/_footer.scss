@@ -1,0 +1,28 @@
+// ---------------------------------------------
+// ======---------------------------------======
+// Header
+// ======---------------------------------======
+// ---------------------------------------------
+@use "../abstracts/functions" as *;
+
+.page-footer {
+  display: grid;
+  place-items: center;
+
+  padding: size(8) size(4);
+
+  background: var(--ds-core-dim-scarlet-900);
+
+  color: var(--ds-core-neutral-100);
+  font-size: 1.2rem;
+  font-family: var(--ds-type-secondary-font-family);
+
+  a {
+    color: var(--ds-core-neutral-100);
+
+    &:hover,
+    &:focus {
+      color: var(--ds-type-color-secondary);
+    }
+  }
+}
