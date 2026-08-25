@@ -8,6 +8,7 @@ newBooks: false
 usedBooks: true
 image: "fayetteville-dickson-street-bookshop.webp"
 categories: []
+visited: true
 ---
 
 Dickson Street Bookshop from the outside seems like a small little corner shop. Once you are inside it's a maze of floor to ceiling used books that feels like it continues on forever. It feels like this is a place you want to visit multiple times, I'm sure the first visit will be overwhelming just trying to take everything in.

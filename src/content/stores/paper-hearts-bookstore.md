@@ -8,6 +8,7 @@ newBooks: true
 usedBooks: false
 image: "little-rock-paper-hearts-bookstore.webp"
 categories: []
+visited: true
 ---
 
 Paper Hearts Bookstore is nestled into a cool little spot not far from the Soma (South on Main) district in Little Rock. They carry a smaller selection of books, but those books are very thoughtfully collected and offers mix of all genres.

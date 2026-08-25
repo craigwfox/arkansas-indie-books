@@ -306,12 +306,16 @@
   }
 
   &__description {
+    display: grid;
+    gap: 1em;
+
     padding: size(3);
 
     border-block-start: 4px solid var(--ds-core-borders-default);
   }
 
-  &:has(#{$card}__content__image) {
+  &:has(#{$card}__content__image),
+  &:has(#{$card}__description) {
     @media (min-width: $breakpoint-md) {
       grid-column: span 2;
     }

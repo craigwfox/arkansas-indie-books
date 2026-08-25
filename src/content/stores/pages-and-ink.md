@@ -6,6 +6,6 @@ city: "Conway"
 website: "https://pagesandink.com/"
 newBooks: true
 usedBooks: false
-image: null
+image: "conway-pages-and-ink.webp"
 categories: []
 ---

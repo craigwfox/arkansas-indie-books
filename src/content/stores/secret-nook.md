@@ -8,6 +8,7 @@ newBooks: true
 usedBooks: true
 image: null
 categories: []
+visited: true
 ---
 
 Secret Nook is right off College Ave in Downtown Conway. They half coffee shop half bookstore. They have a smaller selection of books, but they span quite a few genres and are well picked. They have decent amount of seating inside and a nice cozy atmosphere.
