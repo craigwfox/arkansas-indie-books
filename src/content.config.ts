@@ -9,10 +9,10 @@ const stores = defineCollection({
   }),
   schema: z.object({
     name: z.string(),
-    description: z.string(),
+    description: z.string().optional(),
     address: z.string(),
     city: z.string(),
-    website: z.string(),
+    website: z.string().optional(),
     newBooks: z.boolean(),
     usedBooks: z.boolean(),
     image: z.string().nullable().optional(),

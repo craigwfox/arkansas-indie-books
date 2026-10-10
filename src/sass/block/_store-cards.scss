@@ -232,7 +232,7 @@
       gap: size(1);
       align-items: center;
 
-      h2 {
+      &__name {
         grid-column: 1 / -1;
         grid-row: 1;
 
@@ -241,17 +241,17 @@
         color: var(--ds-book-card-title-color);
       }
 
-      h3 {
+      &__address-title {
         grid-column: 1;
         grid-row: 2;
       }
 
-      p {
+      &__address {
         grid-column: 1;
         grid-row: 3;
       }
 
-      table {
+      &__type {
         grid-column: 2;
         grid-row: 2 / 4;
 
@@ -282,6 +282,11 @@
             }
           }
         }
+      }
+
+      &__url {
+        grid-column: 1 / 3;
+        grid-row: 4;
       }
     }
 

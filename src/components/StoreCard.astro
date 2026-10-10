@@ -43,10 +43,14 @@ function parentCardClass(): string {
 	<div class={classBase("grid")}>
 		<div class={classBase("content")}>
 			<div class={classBase("content__header")}>
-				<h2 id={storeAria}>{storeData.name}</h2>
-				<h3>Address</h3>
-				<p>{storeData.address}<br />{storeData.city}, AR</p>
-				<table>
+				<h2 id={storeAria} class={classBase("content__header__name")}>
+					{storeData.name}
+				</h2>
+				<h3 class={classBase("content__header__address-title")}>Address</h3>
+				<p class={classBase("content__header__address")}>
+					{storeData.address}<br />{storeData.city}, AR
+				</p>
+				<table class={classBase("content__header__type")}>
 					<tbody>
 						<tr>
 							<th scope="row">New</th>
@@ -86,6 +90,19 @@ function parentCardClass(): string {
 						</tr>
 					</tbody>
 				</table>
+				{
+					storeData.website && (
+						<p class={classBase("content__header__url")}>
+							<a
+								href={storeData.website}
+								target="_blank"
+								rel="noreferrer nofollow"
+							>
+								Visit website
+							</a>
+						</p>
+					)
+				}
 			</div>
 			{
 				storeData.image && (
