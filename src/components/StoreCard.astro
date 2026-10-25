@@ -1,15 +1,15 @@
 ---
 import { Buffer } from "node:buffer"
-import type { InferEntrySchema, RenderedContent } from "astro:content"
-import { undefined } from "astro:schema"
+import { render, type CollectionEntry } from "astro:content"
 
 interface Props {
-	store: InferEntrySchema<"stores">
+	store: CollectionEntry<"stores">
 	index: number
 }
 
 const { store, index } = Astro.props
-const storeData = store
+const { Content } = await render(store)
+const storeData = store.data
 const storeIdClear = storeData.name.toLowerCase().replaceAll(" ", "-")
 const storeId = Buffer.from(storeIdClear, "utf-8").toString("base64")
 const storeAria = Buffer.from(`title-${storeIdClear}`, "utf-8").toString(
@@ -103,7 +103,7 @@ function parentCardClass(): string {
 		</div>
 		{store.rendered?.html && (
 			<div class={classBase("description")}>
-				<Fragment set:html={store.rendered.html} />
+				<Content />
 			</div>
 		)}
 	</div>

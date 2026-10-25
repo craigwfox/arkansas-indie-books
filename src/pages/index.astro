@@ -1,9 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import { getCollection, type CollectionEntry } from "astro:content"
+import {
+	getCollection,
+	type CollectionEntry,
+	type RenderedContent,
+} from "astro:content"
 import StoreCard from "../components/StoreCard.astro"
 
-type StoreData = CollectionEntry<"stores">["data"]
+type StoreData = CollectionEntry<"stores">
 
 const cityId = (city: string): string => {
 	return city.replaceAll(" ", "-").toLowerCase()
@@ -39,7 +43,7 @@ stores.forEach((store) => {
 			value: cityKey,
 		})
 	}
-	storesByCity[cityKey].stores.push(store.data)
+	storesByCity[cityKey].stores.push(store)
 })
 ---
 
