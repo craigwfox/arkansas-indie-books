@@ -1,28 +1,131 @@
 ---
 import Layout from "../layouts/Layout.astro"
-import { getCollection } from "astro:content"
+import { getCollection, type CollectionEntry } from "astro:content"
 import StoreCard from "../components/StoreCard.astro"
 
+type StoreData = CollectionEntry<"stores">["data"]
+
+const cityId = (city: string): string => {
+	return city.replaceAll(" ", "-").toLowerCase()
+}
+
 const storeCollection = await getCollection("stores")
+const citySelectItems: {
+	label: string
+	value: string
+}[] = []
+const storesByCity: Record<
+	string,
+	{
+		label: string
+		stores: StoreData[]
+	}
+> = {}
 const stores = [...storeCollection].sort((a, b) =>
 	a.data.city.localeCompare(b.data.city),
 )
+
+stores.forEach((store) => {
+	const city = store.data.city
+	const cityKey = cityId(city)
+	if (!storesByCity[cityKey]) {
+		storesByCity[cityKey] = {
+			label: store.data.city,
+			stores: [],
+		}
+
+		citySelectItems.push({
+			label: city,
+			value: cityKey,
+		})
+	}
+	storesByCity[cityKey].stores.push(store.data)
+})
 ---
+
+<script>
+	const citySelector =
+		document.querySelector<HTMLSelectElement>("#citySelector")
+
+	citySelector?.addEventListener("change", () => {
+		document.getElementById(citySelector.value)?.scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+		})
+	})
+
+	const storeWrapper = document.querySelector<HTMLElement>(".store-wrapper")
+	const backToTop = document.querySelector<HTMLButtonElement>("#back-top")
+
+	const updateBackToTop = () => {
+		const hasPassedTop = (storeWrapper?.getBoundingClientRect().top ?? 0) <= 0
+		backToTop?.classList.toggle("is-visible", hasPassedTop)
+	}
+
+	window.addEventListener("scroll", updateBackToTop, { passive: true })
+	updateBackToTop()
+
+	backToTop?.addEventListener("click", () => {
+		document.querySelector(".store-header")?.scrollIntoView({
+			behavior: "smooth",
+			block: "start",
+		})
+	})
+</script>
 
 <Layout>
 	<div class="store-grid background-diamond">
-		<div class="flow-sm">
+		<div class="store-header flow-sm">
 			<h1>Indie Bookstores of Arkansas</h1>
 			<p>A list of most of the great independent bookstores across Arkansas.</p>
 			<p>
-				If you would like to be added fill out the <a
+				If you would like to be added fill out the{" "}
+				<a
 					href="https://docs.google.com/forms/d/e/1FAIpQLSeW4XyDDWN-1eu08xPtL0UofL_epbExKOF88lpSaHY7wfXfDA/viewform?usp=header"
-					target="_blank">request form</a
-				>.
+					target="_blank"
+				>
+					request form
+				</a>
+				.
 			</p>
 		</div>
-		<div class="store-cards">
-			{stores.map((store, index) => <StoreCard store={store} index={index} />)}
+		<div class="store-wrapper">
+			<button id="back-top">
+				<span class="ds-u-is-vishidden">Back to top</span>
+				<span>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="50"
+						height="50"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="1"
+						stroke-linecap="butt"
+						stroke-linejoin="round"
+					>
+						<path d="M12 19V6M5 12l7-7 7 7" />
+					</svg>
+				</span>
+			</button>
+			<div class="city-selector">
+				<label for="citySelector">Select a city</label>
+				<select id="citySelector">
+					{citySelectItems.map((item) => (
+						<option value={item.value}>{item.label}</option>
+					))}
+				</select>
+			</div>
+			{Object.entries(storesByCity).map(([city, data]) => (
+				<section class="store-city" id={city} aria-labelledby={`title-${city}`}>
+					<h2 id={`title-${city}`}>{data.label}</h2>
+					<div class="store-cards">
+						{data.stores.map((store, index) => (
+							<StoreCard store={store} index={index} />
+						))}
+					</div>
+				</section>
+			))}
 		</div>
 	</div>
 </Layout>

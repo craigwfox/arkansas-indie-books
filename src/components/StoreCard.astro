@@ -4,19 +4,12 @@ import type { InferEntrySchema, RenderedContent } from "astro:content"
 import { undefined } from "astro:schema"
 
 interface Props {
-	store: {
-		id: string
-		body?: string
-		collection: "stores"
-		data: InferEntrySchema<"stores">
-		rendered?: RenderedContent
-		filePath?: string
-	}
+	store: InferEntrySchema<"stores">
 	index: number
 }
 
 const { store, index } = Astro.props
-const storeData = store.data
+const storeData = store
 const storeIdClear = storeData.name.toLowerCase().replaceAll(" ", "-")
 const storeId = Buffer.from(storeIdClear, "utf-8").toString("base64")
 const storeAria = Buffer.from(`title-${storeIdClear}`, "utf-8").toString(
@@ -48,78 +41,70 @@ function parentCardClass(): string {
 				</h2>
 				<h3 class={classBase("content__header__address-title")}>Address</h3>
 				<p class={classBase("content__header__address")}>
-					{storeData.address}<br />{storeData.city}, AR
+					{storeData.address}
+					<br />
+					{storeData.city}, AR
 				</p>
 				<table class={classBase("content__header__type")}>
 					<tbody>
 						<tr>
 							<th scope="row">New</th>
-							<td
-								>{
-									storeData.newBooks ? (
-										<img
-											src="/images/icon-checkbox-yes.svg"
-											alt="has new books"
-										/>
-									) : (
-										<img
-											src="/images/icon-checkbox-no.svg"
-											alt="does not have new books"
-										/>
-									)
-								}</td
-							>
+							<td>
+								{storeData.newBooks ? (
+									<img
+										src="/images/icon-checkbox-yes.svg"
+										alt="has new books"
+									/>
+								) : (
+									<img
+										src="/images/icon-checkbox-no.svg"
+										alt="does not have new books"
+									/>
+								)}
+							</td>
 						</tr>
 						<tr>
 							<th scope="row">Used</th>
-							<td
-								>{
-									storeData.usedBooks ? (
-										<img
-											src="/images/icon-checkbox-yes.svg"
-											alt="has used books"
-										/>
-									) : (
-										<img
-											src="/images/icon-checkbox-no.svg"
-											alt="does not have used books"
-										/>
-									)
-								}</td
-							>
+							<td>
+								{storeData.usedBooks ? (
+									<img
+										src="/images/icon-checkbox-yes.svg"
+										alt="has used books"
+									/>
+								) : (
+									<img
+										src="/images/icon-checkbox-no.svg"
+										alt="does not have used books"
+									/>
+								)}
+							</td>
 						</tr>
 					</tbody>
 				</table>
-				{
-					storeData.website && (
-						<p class={classBase("content__header__url")}>
-							<a
-								href={storeData.website}
-								target="_blank"
-								rel="noreferrer nofollow"
-							>
-								Visit website
-							</a>
-						</p>
-					)
-				}
+				{storeData.website && (
+					<p class={classBase("content__header__url")}>
+						<a
+							href={storeData.website}
+							target="_blank"
+							rel="noreferrer nofollow"
+						>
+							Visit website
+						</a>
+					</p>
+				)}
 			</div>
-			{
-				storeData.image && (
-					<img
-						class={classBase("content__image")}
-						src={`/store-images/${storeData.image}`}
-						loading="lazy"
-					/>
-				)
-			}
+			{storeData.image && (
+				<img
+					class={classBase("content__image")}
+					src={`/store-images/${storeData.image}`}
+					loading="lazy"
+				/>
+			)}
 		</div>
-		{
-			store.rendered?.html && (
-				<div class={classBase("description")}>
-					<Fragment set:html={store.rendered.html} />
-				</div>
-			)
-		}
+		{store.rendered?.html && (
+			<div class={classBase("description")}>
+				<Fragment set:html={store.rendered.html} />
+			</div>
+		)}
 	</div>
 </article>
